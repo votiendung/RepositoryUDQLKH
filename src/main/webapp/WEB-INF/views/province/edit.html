@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    public Product(Long proID, String proName, String proPrice, int proQuantity, String img, Category category) {
+-->
+<h1>Product</h1>
+<p>
+    <a href="/province">productList</a>
+</p>
+<span th:text="${message}"></span>
+<div id="form">
+    <form  th:object="${province}"
+          method="post" novalidate="novalidate" >
+        <input type="hidden" name="id" th:value="${province.getId()}">
+        <div>
+            <label>proName</label>
+            <input type="text" name="name" th:value="${province.getName()}"/>
+        </div>
+
+        <input type="submit" value="Edit">
+
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/products/create">Create new product</a>
+<h1>Products</h1>
+<!--    public Product(Long proID, String proName, String proPrice, int proQuantity, String img) {
+-->
+<table id="customers" border="1">
+    <thead>
+    <tr>
+        <!--        <th>ProID</th>-->
+        <th>ProName</th>
+        <th>ProPrice</th>
+        <th>ProQuantity</th>
+        <th>CategoryName</th>
+        <th>Img</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pro: ${product}">
+        <!--        <td th:text="${pro.getProID()}"></td>-->
+        <td th:text="${pro.getProName()}"></td>
+        <td th:text="${pro.getProPrice()}"></td>
+        <td th:text="${pro.getProQuantity()}"></td>
+        <td th:text="${pro.category.getCategoryName()}"></td>
+
+        <td><img th:src="@{'/i/'+ ${pro.getImg()}}" width="100px"/></td>
+        <td><a th:href="@{products/edit/__${pro.getProID()}__}">edit</a></td>
+        <td><a th:href="@{/products/delete/__${pro.getProID()}__}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

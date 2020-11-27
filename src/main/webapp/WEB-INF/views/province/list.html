@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/province/create">Create new provice</a>
+<h1>Products</h1>
+<!--    public Product(Long proID, String proName, String proPrice, int proQuantity, String img) {
+-->
+<table id="customers" border="1">
+    <thead>
+    <tr>
+        <!--        <th>ProID</th>-->
+        <th>ProvinceName</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="province: ${province}">
+        <!--        <td th:text="${pro.getProID()}"></td>-->
+        <td th:text="${province.getName()}"></td>
+        <td><a th:href="@{/province/edit/__${province.getId()}__}">edit</a></td>
+        <td><a th:href="@{/province/delete/__${province.getId()}__}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
